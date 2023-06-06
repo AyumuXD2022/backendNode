@@ -52,7 +52,7 @@ async function deleteMenu(req, res) {
         
         res.status(200).send({ msg: "Menu eliminado" });
     } catch (error) {
-        res.status(400).send({ msg: "Error al eliminar el Menu" });
+        res.status(400).send({ msg: "Error al eliminar el Menu " });
     }
 }
 
