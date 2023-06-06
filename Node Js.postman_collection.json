@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "44d0a4c2-7349-4e9e-93eb-59c937c9be6d",
+		"name": "Node Js",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27532437"
+	},
+	"item": [
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firsname\": \"Gustavo\",\r\n    \"lastname\" : \"Ortega\",\r\n    \"email\" : \"gustavi@mail.com\",\r\n    \"password\" : \"123456\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3977/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3977",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
