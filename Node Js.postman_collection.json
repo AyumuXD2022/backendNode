@@ -39,12 +39,3 @@
 		}
 	]
 }
-{
-	{
-		"firsname": "Luis",
-		"lastname" : "Ortega",
-		"email" : "Luis@mail.com",
-		"password" : "123456"
-	
-	}
-}

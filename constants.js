@@ -5,10 +5,13 @@ const DB_NAME = "web-personal"
 
 const API_VERSION = "v1"
 
+const JWT_SECRET_KEY = "kEu6375j9D2ATaRI9fbcZPsJQ0kWxoYs3nAhyBXcvx4ySuhT2N"
+
 module.exports = {
     DB_USER,
     DB_PASSWORD,
     DB_NAME,
     API_VERSION,
-    DB_URL
+    DB_URL,
+    JWT_SECRET_KEY
 }
