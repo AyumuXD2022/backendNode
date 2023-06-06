@@ -23,7 +23,11 @@ async function getUsers(req,res){
         response = await User.find({active});
     }
     
-    res.status(200).send(response);
+    if(!response){
+        res.status(400).send({msg:"No se ha encontrado ningun valor"});
+    }else{
+        res.status(200).send(response);
+    }
 }
 
 async function createUser(req,res){
