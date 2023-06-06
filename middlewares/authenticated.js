@@ -10,7 +10,7 @@ function asureAuth( req, res, next) {
 
     try {
         const payload = jwt.decoded(token);
-        console.log(payload)
+        
 
         const { exp } = payload;
         const currentData = new Date().getTime();
