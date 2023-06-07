@@ -2,9 +2,11 @@ const moongose = require("mongoose");
 
 const CourseSchema = moongose.Schema({
     title : String,
-    path : String,
-    order: Number,
-    active: Boolean
+    miniature:String,
+    description:String,
+    url : String,
+    price: Number,
+    score: Number
 })
 
 module.exports = moongose.model("Course",CourseSchema);
