@@ -1,4 +1,5 @@
 const moongose = require("mongoose");
+const mongoosePaginate = require('mongoose-paginate');
 
 const CourseSchema = moongose.Schema({
     title : String,
@@ -7,6 +8,7 @@ const CourseSchema = moongose.Schema({
     url : String,
     price: Number,
     score: Number
-})
+});
+CourseSchema.plugin(mongoosePaginate);
 
 module.exports = moongose.model("Course",CourseSchema);
