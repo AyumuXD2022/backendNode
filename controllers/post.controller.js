@@ -52,8 +52,38 @@ const updatePost = async (req, res) => {
     }
 }
 
+const deletePost = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const response = await Post.findByIdAndDelete(id);
+        if(response.miniature){
+            fs.unlinkSync(`./uploads/${response.miniature}`)
+        }
+        res.status(200).send({ msg: "Post eliminado" });
+    } catch (error) {
+        res.status(400).send({ msg: "Error al eliminar el post" });
+    }
+}
+
+const getPost = async (req, res) => {
+    const { path } = req.params;
+    try {
+        const postStored = await Post.findOne({ path }).exec();
+        if(!postStored){
+            res.status(400).send({ msg: "No se ha encontrado ningun post" });
+        }else{
+            res.status(200).send(postStored);
+        }
+    } catch (error) {
+        res.status(500).send({ msg: "Error del servidor" });
+    }
+
+} 
+
 module.exports = {
     createPost,
     getPosts,
-    updatePost
+    updatePost,
+    deletePost,
+    getPost
 }
