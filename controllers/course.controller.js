@@ -22,7 +22,7 @@ const getCourse = async (req, res) => {
     }
     Course.paginate({}, options, (error, courses) => {
         if (error) {
-            res.status(400).send({ msg: "Error al obte un recurso" });
+            res.status(400).send({ msg: "Error al obtener un recurso" });
         } else {
             res.status(200).send(courses);
         }
