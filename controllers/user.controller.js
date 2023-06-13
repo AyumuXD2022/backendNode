@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const image = require("../utils/image")
 const fs = require('fs')
 
-async function getMe (req,res){
+const getMe  = async (req,res)=> {
     const { user_id } = req.user;
     try {
         const response = await User.findById(user_id)
@@ -14,7 +14,7 @@ async function getMe (req,res){
     
 }
 
-async function getUsers(req,res){
+const getUsers = async (req,res)=> {
     const { active } = req.query;
     let response = null;
     if(active === undefined){
@@ -30,7 +30,7 @@ async function getUsers(req,res){
     }
 }
 
-async function createUser(req,res){
+const createUser = async (req,res)=> {
     const { password } = req.body;
     const user = new User({...req.body,active:false})
 
@@ -52,7 +52,7 @@ async function createUser(req,res){
     }
 }
 
-async function updateUser(req,res){
+const updateUser = async (req,res)=> {
     const { id } = req.params;
     const userData = req.body;
 
@@ -81,7 +81,7 @@ async function updateUser(req,res){
 
 }
 
-async function deleteUser(req,res){
+const deleteUser = async (req,res)=> {
     const { id } = req.params;
     try {
         const response = await User.findByIdAndDelete(id)

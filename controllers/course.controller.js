@@ -2,7 +2,7 @@ const Course = require("../models/course.model")
 const image = require("../utils/image")
 const fs = require('fs')
 
-async function creationCourse(req, res) {
+const creationCourse = async (req, res) => {
     const course = new Course(req.body);
     const imagePath = image.getFilePath(req.files.miniature)
     course.miniature = imagePath
@@ -14,7 +14,7 @@ async function creationCourse(req, res) {
     }
 }
 
-async function getCourse(req, res) {
+const getCourse = async (req, res) => {
     const { page = 1, limit = 10 } = req.query
     const options = {
         page: parseInt(page),
@@ -28,13 +28,12 @@ async function getCourse(req, res) {
         }
     })
 }
-async function updateCourse(req, res) {
+const updateCourse = async (req, res) => {
     const { id } = req.params;
     const courseData = req.body;
     if(req.files.miniature){
         const imagePath = image.getFilePath(req.files.miniature)
         courseData.miniature = imagePath
-        console.log(imagePath)
     }
 
     try {
@@ -48,7 +47,7 @@ async function updateCourse(req, res) {
     }
 }
 
-async function deleteCourse(req,res){
+const deleteCourse = async(req,res) =>{
     const { id } = req.params;
     try {
         const response = await Course.findByIdAndDelete(id);

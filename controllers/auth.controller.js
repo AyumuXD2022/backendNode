@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require("../utils/jwt")
 
 
-async function register(req,res){
+const register = async (req,res) =>{
     const { firsname,lastname, email, password } = req.body;
 
     if(!email) res.status(400).send({msg:"El email es obligatorio"});
@@ -30,7 +30,7 @@ async function register(req,res){
     }
 }
 
-async function login (req,res){
+const login  = async (req,res) =>{
     const {email, password }  = req.body;
 
     if(!email) res.status(400).send({msg:"El email es obligatorio"});
@@ -59,7 +59,7 @@ async function login (req,res){
     }
 }
 
-async function refreshAccessToken(req,res){
+const refreshAccessToken = async (req,res) =>{
     const { token } = req.body;
     if(!token) res.status(400).send({msg:"El token es obligatorio"});
     
