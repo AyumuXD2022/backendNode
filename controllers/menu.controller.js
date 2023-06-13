@@ -1,6 +1,6 @@
 const Menu = require("../models/menu.model")
 
-async function createMenu(req, res) {
+ const createMenu = async (req, res) => {
 
 
     try {
@@ -13,7 +13,7 @@ async function createMenu(req, res) {
 
 }
 
-async function getMenus(req, res) {
+ const getMenus = async (req, res) => {
     const { active } = req.query;
 
 
@@ -32,7 +32,7 @@ async function getMenus(req, res) {
 
 }
 
-async function updateMenu(req, res) {
+ const updateMenu = async (req, res) => {
     const { id } = req.params;
     const menuData = req.body;
 
@@ -45,7 +45,7 @@ async function updateMenu(req, res) {
     }
 }
 
-async function deleteMenu(req, res) {
+ const deleteMenu = async (req, res) => {
     const { id } = req.params;
     try {
         await Menu.findByIdAndDelete(id)
